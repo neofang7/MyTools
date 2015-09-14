@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Targets>
+  <Machine>
+    <ip>10.239.13.109</ip>
+    <port>22</port>
+    <user>root</user>
+    <password>iotos</password>
+  </Machine>
+
+</Targets>
+
