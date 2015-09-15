@@ -1,0 +1,51 @@
+
+---------------------------------------------Release Info----------------------------------------
+
+
+---------------------------------------------System  Info----------------------------------------
+MemTotal     :		MB
+MemUsed      :		MB
+MemAvailable :		MB
+MemFree      :		MB
+MemSlab      :		MB
+
+---------------------------------------------Processes---------------------------------------------
+PID:386	/usr/bin/sensord 
+	Prop:	[Size=1028kB;	Rss=4kB;	Pss=4kB]
+	Heap:	[Size=0kB;	Rss=0kB;	Pss=0kB]
+	Stack:	[Size=24572kB;	Rss=28kB;	Pss=28kB]
+	vdso:	[Size=0kB;	Rss=0kB;	Pss=0kB]
+
+---------------------------------------------Libraries---------------------------------------------
+	 Prop:[Size=1908kB;	Rss=284kB;	Pss=180kB]	Referenced:1	/usr/lib/libgio-2.0.so.0.4200.1
+	 Prop:[Size=1548kB;	Rss=884kB;	Pss=884kB]	Referenced:1	/usr/lib/libxml2.so.2.9.2
+	 Prop:[Size=1516kB;	Rss=1212kB;	Pss=89kB]	Referenced:1	/lib/libc-2.21.so
+	 Prop:[Size=1412kB;	Rss=688kB;	Pss=176kB]	Referenced:1	/usr/lib/libglib-2.0.so.0.4200.1
+	 Prop:[Size=1072kB;	Rss=840kB;	Pss=312kB]	Referenced:1	/usr/lib/libstdc++.so.6.0.20
+	 Prop:[Size=416kB;	Rss=204kB;	Pss=79kB]	Referenced:1	/usr/lib/libcynara-commons.so.0.8.0
+	 Prop:[Size=404kB;	Rss=316kB;	Pss=166kB]	Referenced:1	/usr/lib/libgobject-2.0.so.0.4200.1
+	 Prop:[Size=332kB;	Rss=136kB;	Pss=34kB]	Referenced:1	/lib/libm-2.21.so
+	 Prop:[Size=264kB;	Rss=228kB;	Pss=228kB]	Referenced:1	/usr/lib/libsensord-server.so
+	 Prop:[Size=188kB;	Rss=140kB;	Pss=58kB]	Referenced:1	/lib/libsystemd.so.0.6.0
+	 Prop:[Size=184kB;	Rss=132kB;	Pss=44kB]	Referenced:1	/usr/lib/liblzma.so.5.2.0
+	 Prop:[Size=140kB;	Rss=120kB;	Pss=13kB]	Referenced:1	/lib/ld-2.21.so
+	 Prop:[Size=112kB;	Rss=108kB;	Pss=18kB]	Referenced:1	/lib/libpthread-2.21.so
+	 Prop:[Size=108kB;	Rss=68kB;	Pss=13kB]	Referenced:1	/lib/libnsl-2.21.so
+	 Prop:[Size=104kB;	Rss=88kB;	Pss=34kB]	Referenced:1	/lib/libz.so.1.2.8
+	 Prop:[Size=104kB;	Rss=92kB;	Pss=92kB]	Referenced:1	/usr/lib/libmraa.so.0.7.3
+	 Prop:[Size=96kB;	Rss=72kB;	Pss=18kB]	Referenced:1	/lib/libresolv-2.21.so
+	 Prop:[Size=80kB;	Rss=80kB;	Pss=11kB]	Referenced:1	/lib/libgcc_s.so.1
+	 Prop:[Size=76kB;	Rss=72kB;	Pss=72kB]	Referenced:1	/usr/bin/sensord
+	 Prop:[Size=64kB;	Rss=64kB;	Pss=36kB]	Referenced:1	/usr/lib/libcynara-client.so.0.8.0
+	 Prop:[Size=56kB;	Rss=56kB;	Pss=27kB]	Referenced:1	/lib/libnss_compat-2.21.so
+	 Prop:[Size=56kB;	Rss=56kB;	Pss=34kB]	Referenced:1	/usr/lib/libcynara-client-commons.so.0.8.0
+	 Prop:[Size=52kB;	Rss=52kB;	Pss=52kB]	Referenced:1	/usr/lib/libsensord-share.so
+	 Prop:[Size=36kB;	Rss=36kB;	Pss=22kB]	Referenced:1	/usr/lib/libtzplatform-config-2.0.so.2.0.0
+	 Prop:[Size=36kB;	Rss=36kB;	Pss=22kB]	Referenced:1	/usr/lib/libffi.so.6.0.4
+	 Prop:[Size=36kB;	Rss=36kB;	Pss=10kB]	Referenced:1	/lib/librt-2.21.so
+	 Prop:[Size=32kB;	Rss=32kB;	Pss=32kB]	Referenced:1	/usr/lib/libcynara-creds-commons.so.0.8.0
+	 Prop:[Size=24kB;	Rss=24kB;	Pss=9kB]	Referenced:1	/lib/libcap.so.2.24
+	 Prop:[Size=20kB;	Rss=20kB;	Pss=14kB]	Referenced:1	/usr/lib/libgmodule-2.0.so.0.4200.1
+	 Prop:[Size=20kB;	Rss=20kB;	Pss=8kB]	Referenced:1	/lib/libdl-2.21.so
+	 Prop:[Size=20kB;	Rss=20kB;	Pss=20kB]	Referenced:1	/usr/lib/libcynara-creds-socket.so.0.8.0
+	 Prop:[Size=20kB;	Rss=20kB;	Pss=14kB]	Referenced:1	/usr/lib/libdlog.so.0.0.0

@@ -1,0 +1,27 @@
+Memuse is a memory usage analyzer that developed for Ostro OS.
+This tool is a cross structure, users run it on a host machine to fetch and anlyze the memory status of a target machine. Currently, the target machine should be based on Intel Ostro.
+
+Installation:
+#1. Install python 2.7
+#2. Install pip which is a python tool
+#3. Install python modules with pip tool: libssh2, pexpect 
+
+How to use:
+--ip, -i <ip address>	IP address of the target machine.
+--port, -p <port> 	Normally, it's 22.
+--user, -u <user>	Root privilege required. By default it's 'root'. 
+--password, -w <pass>	Password. By default 'iotos'
+--load, -l <config>	This tool can test several target machines parallely. The related information of these target machines are defined in config/target_machine.xml.
+--output, -o <dir>	Output the analysis result into the folder. Default is ./outputs.
+--process, -s <pname>	If not set this option, memuse outputs all of the information about memory usage. 
+	      		If set the process name, memuse outputs the memory usage of this process.
+
+Examples:
+#1. Test everython in one target machine,
+$python memuse.py -i 10.239.13.109 -p 22
+
+#2. Test one process in one target machine,
+$python memuse.py -i 10.239.13.109 -p 22 -s sensord
+
+#3. Test several target machines
+$python memuse.py -l ./config/targets.xml
