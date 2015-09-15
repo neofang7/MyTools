@@ -1,16 +1,6 @@
 import xml.etree.ElementTree as ET
 from target_machine import *
-
-class ThreadInput:
-    def __init__(self, ip, port, user, password, output):
-        self.ip = ip
-        self.port = port
-        self.user = user
-        self.password = password
-        self.output = output
-
-    def _myself(self):
-        return '[ip=' + self.ip + ', port=' + self.port + ', user=' + self.user + ', password=' + self.password + ']'
+from thread_input import *
 
 def parse_target_xml(xml):
     tree = ET.parse(xml)
@@ -25,7 +15,8 @@ def parse_target_xml(xml):
     tis = []
 
     for child in root:
-        m = ThreadInput  (child.find('ip').text, 
+        m = ThreadInput  ()
+        m.set_machine(child.find('ip').text, 
                           child.find('port').text,
                           child.find('user').text,
                           child.find('password').text, './outputs')

@@ -4,7 +4,7 @@ import os
 import os.path
 import string
 
-from proc import *
+#from proc import *
 from target_machine import *
 
 class MemStat:

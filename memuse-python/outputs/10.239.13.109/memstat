@@ -781,14 +781,15 @@ sh (721): drop_caches: 3
 sh (745): drop_caches: 3
 Memory: 1946512K/1988976K available (9041K kernel code, 637K rwdata, 3352K rodata, 716K init, 760K bss, 42464K reserved, 0K cma-reserved, 1078024K highmem)
 Memory: 1946512K/1988976K available (9041K kernel code, 637K rwdata, 3352K rodata, 716K init, 760K bss, 42464K reserved, 0K cma-reserved, 1078024K highmem)
-Memory: 1946512K/1988976K available (9041K kernel code, 637K rwdata, 3352K rodata, 716K init, 760K bss, 42464K reserved, 0K cma-reserved, 1078024K highmem)
 
+
+---------------------------------------------Kernel  Info----------------------------------------
 
 ---------------------------------------------System  Info----------------------------------------
 MemTotal     :	1908	MB
-MemUsed      :	80	MB
-MemAvailable :	1828	MB
-MemFree      :	1817	MB
+MemUsed      :	81	MB
+MemAvailable :	1827	MB
+MemFree      :	1816	MB
 MemSlab      :	16	MB
 
 ---------------------------------------------Processes---------------------------------------------
@@ -798,7 +799,7 @@ PID:1	/sbin/init BOOT_IMAGE=/vmlinuz initrd=/initrd LABEL=boot root=/dev/ram0 co
 	Stack:	[Size=0kB;	Rss=0kB;	Pss=0kB]
 	vdso:	[Size=0kB;	Rss=0kB;	Pss=0kB]
 PID:313	/lib/systemd/systemd-journald 
-	Prop:	[Size=8196kB;	Rss=1196kB;	Pss=1194kB]
+	Prop:	[Size=8196kB;	Rss=2056kB;	Pss=2054kB]
 	Heap:	[Size=0kB;	Rss=0kB;	Pss=0kB]
 	Stack:	[Size=0kB;	Rss=0kB;	Pss=0kB]
 	vdso:	[Size=0kB;	Rss=0kB;	Pss=0kB]
@@ -822,13 +823,13 @@ PID:356	/lib/systemd/systemd-timesyncd
 	Heap:	[Size=0kB;	Rss=0kB;	Pss=0kB]
 	Stack:	[Size=0kB;	Rss=0kB;	Pss=0kB]
 	vdso:	[Size=0kB;	Rss=0kB;	Pss=0kB]
-PID:818	/usr/sbin/dropbear -i -r /etc/dropbear/dropbear_rsa_host_key -B 
-	Prop:	[Size=360kB;	Rss=344kB;	Pss=182kB]
+PID:1493	/usr/sbin/dropbear -i -r /etc/dropbear/dropbear_rsa_host_key -B 
+	Prop:	[Size=360kB;	Rss=352kB;	Pss=180kB]
 	Heap:	[Size=132kB;	Rss=76kB;	Pss=76kB]
 	Stack:	[Size=0kB;	Rss=0kB;	Pss=0kB]
 	vdso:	[Size=0kB;	Rss=0kB;	Pss=0kB]
-PID:807	/usr/sbin/dropbear -i -r /etc/dropbear/dropbear_rsa_host_key -B 
-	Prop:	[Size=360kB;	Rss=332kB;	Pss=170kB]
+PID:1482	/usr/sbin/dropbear -i -r /etc/dropbear/dropbear_rsa_host_key -B 
+	Prop:	[Size=360kB;	Rss=352kB;	Pss=180kB]
 	Heap:	[Size=132kB;	Rss=76kB;	Pss=76kB]
 	Stack:	[Size=0kB;	Rss=0kB;	Pss=0kB]
 	vdso:	[Size=0kB;	Rss=0kB;	Pss=0kB]
@@ -842,7 +843,7 @@ PID:371	/usr/bin/cynara
 	Heap:	[Size=0kB;	Rss=0kB;	Pss=0kB]
 	Stack:	[Size=0kB;	Rss=0kB;	Pss=0kB]
 	vdso:	[Size=0kB;	Rss=0kB;	Pss=0kB]
-PID:819	python ./local_copy.py 
+PID:1496	python ./local_copy.py 
 	Prop:	[Size=12kB;	Rss=12kB;	Pss=12kB]
 	Heap:	[Size=720kB;	Rss=660kB;	Pss=660kB]
 	Stack:	[Size=0kB;	Rss=0kB;	Pss=0kB]
@@ -854,6 +855,11 @@ PID:388	/usr/sbin/connmand -n
 	vdso:	[Size=0kB;	Rss=0kB;	Pss=0kB]
 PID:426	/lib/systemd/systemd --user 
 	Prop:	[Size=8kB;	Rss=8kB;	Pss=8kB]
+	Heap:	[Size=0kB;	Rss=0kB;	Pss=0kB]
+	Stack:	[Size=0kB;	Rss=0kB;	Pss=0kB]
+	vdso:	[Size=0kB;	Rss=0kB;	Pss=0kB]
+PID:886	syslogd 
+	Prop:	[Size=4kB;	Rss=4kB;	Pss=4kB]
 	Heap:	[Size=0kB;	Rss=0kB;	Pss=0kB]
 	Stack:	[Size=0kB;	Rss=0kB;	Pss=0kB]
 	vdso:	[Size=0kB;	Rss=0kB;	Pss=0kB]
@@ -879,7 +885,7 @@ PID:387	/usr/bin/security-manager
 	 Prop:[Size=1892kB;	Rss=1036kB;	Pss=936kB]	Referenced:2	/usr/lib/libgio-2.0.so.0.4200.1
 	 Prop:[Size=1692kB;	Rss=352kB;	Pss=352kB]	Referenced:1	/usr/lib/libicuuc.so.54.1
 	 Prop:[Size=1548kB;	Rss=884kB;	Pss=884kB]	Referenced:1	/usr/lib/libxml2.so.2.9.2
-	 Prop:[Size=1516kB;	Rss=1072kB;	Pss=71kB]	Referenced:23	/lib/libc-2.21.so
+	 Prop:[Size=1516kB;	Rss=1072kB;	Pss=70kB]	Referenced:24	/lib/libc-2.21.so
 	 Prop:[Size=1416kB;	Rss=920kB;	Pss=273kB]	Referenced:5	/usr/lib/libglib-2.0.so.0.4200.1
 	 Prop:[Size=1348kB;	Rss=664kB;	Pss=372kB]	Referenced:2	/usr/lib/libgnutls.so.28.41.4
 	 Prop:[Size=1224kB;	Rss=64kB;	Pss=37kB]	Referenced:5	/lib/libcrypt-2.21.so
@@ -893,10 +899,10 @@ PID:387	/usr/bin/security-manager
 	 Prop:[Size=404kB;	Rss=332kB;	Pss=182kB]	Referenced:2	/usr/lib/libgobject-2.0.so.0.4200.1
 	 Prop:[Size=372kB;	Rss=308kB;	Pss=115kB]	Referenced:3	/usr/lib/libdbus-1.so.3.8.8
 	 Prop:[Size=336kB;	Rss=256kB;	Pss=128kB]	Referenced:3	/lib/libmount.so.1.1.0
-	 Prop:[Size=332kB;	Rss=132kB;	Pss=24kB]	Referenced:10	/lib/libm-2.21.so
+	 Prop:[Size=332kB;	Rss=132kB;	Pss=24kB]	Referenced:11	/lib/libm-2.21.so
 	 Prop:[Size=300kB;	Rss=144kB;	Pss=76kB]	Referenced:4	/lib/libblkid.so.1.1.0
 	 Prop:[Size=296kB;	Rss=228kB;	Pss=228kB]	Referenced:1	/usr/lib/python2.7/lib-dynload/_collections.so
-	 Prop:[Size=296kB;	Rss=256kB;	Pss=256kB]	Referenced:1	/usr/lib/libreadline.so.6.3
+	 Prop:[Size=296kB;	Rss=284kB;	Pss=284kB]	Referenced:1	/usr/lib/libreadline.so.6.3
 	 Prop:[Size=276kB;	Rss=12kB;	Pss=12kB]	Referenced:2	/lib/security/pam_systemd.so
 	 Prop:[Size=264kB;	Rss=228kB;	Pss=228kB]	Referenced:1	/usr/lib/libsensord-server.so
 	 Prop:[Size=224kB;	Rss=224kB;	Pss=116kB]	Referenced:2	/usr/lib/libnettle.so.4.7
@@ -907,8 +913,8 @@ PID:387	/usr/bin/security-manager
 	 Prop:[Size=184kB;	Rss=160kB;	Pss=156kB]	Referenced:1	/usr/lib/libexpat.so.1.6.0
 	 Prop:[Size=180kB;	Rss=136kB;	Pss=136kB]	Referenced:1	/usr/lib/libgum-common.so.0.0.0
 	 Prop:[Size=168kB;	Rss=84kB;	Pss=84kB]	Referenced:1	/usr/lib/libcynara-admin.so.0.8.0
-	 Prop:[Size=144kB;	Rss=136kB;	Pss=80kB]	Referenced:2	/lib/libtinfo.so.5.9
-	 Prop:[Size=140kB;	Rss=140kB;	Pss=12kB]	Referenced:23	/lib/ld-2.21.so
+	 Prop:[Size=144kB;	Rss=140kB;	Pss=84kB]	Referenced:2	/lib/libtinfo.so.5.9
+	 Prop:[Size=140kB;	Rss=140kB;	Pss=12kB]	Referenced:24	/lib/ld-2.21.so
 	 Prop:[Size=140kB;	Rss=120kB;	Pss=120kB]	Referenced:1	/usr/lib/libnl-3.so.200.20.0
 	 Prop:[Size=124kB;	Rss=120kB;	Pss=22kB]	Referenced:17	/lib/libpthread-2.21.so
 	 Prop:[Size=116kB;	Rss=16kB;	Pss=16kB]	Referenced:2	/lib/security/pam_unix.so

@@ -2,7 +2,7 @@
 
 import sys, shutil, os, string
 
-def copy_smaps():
+def copy_smaps(pid):
     dest = '/tmp/proc/'
     #if os.path.exists(dest):
     #    shutil.rmtree(dest)
@@ -11,6 +11,14 @@ def copy_smaps():
     #shutil.copy('/proc/meminfo', dest)
     #shutil.copy('/etc/os-release', dest)
     #print 'start to map smaps'
+
+    if pid != '':
+        src = '/proc/'+pid+'/smaps'
+        cmdline = '/proc/'+pid+'cmdline'
+        if os.path.exists(src):
+            os.mkdir (dest + pid + '/')
+            shutil.copy(src, dest + pid + '/')
+            shutil.copy(cmdline, dest + pid + '/')
 
     for i in os.listdir('/proc/'):
         
@@ -29,4 +37,8 @@ def copy_smaps():
                         
 
 if __name__ == '__main__':
-    copy_smaps()
+    args = str(sys.argv)
+    if len(args) != 1:
+        copy_smaps(args[1])
+    else:
+        copy_smaps('')

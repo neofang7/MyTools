@@ -10,21 +10,28 @@ class SysMem:
         self.MemSlab = ''
         self.MemAvailable = ''
         self.ReleaseInfo = []
+        self.KernelMem = []
         
         os_release = path + '/os-release'
         meminfo = path + '/meminfo'
-        
-        if self.analyze_sysmem(meminfo, os_release) == False:
+        kernel_mem = path + '/kernel-memory'
+
+        if self.analyze_sysmem(meminfo, os_release, kernel_mem) == False:
             print 'Error in analyze system memory'
         
 
-    def analyze_sysmem(self, meminfo, osrelease):
+    def analyze_sysmem(self, meminfo, osrelease, kernel_mem):
+        print kernel_mem
         result = self._analyze_meminfo(meminfo)
         if result == False:
             return False
         
         result = self._fetch_releaseinfo(osrelease)
-        print self.ReleaseInfo
+        #print self.ReleaseInfo
+        if result != False:
+            result = self._fetch_kernelmem(kernel_mem)
+        else:
+            print 'Error in release info'
 
         return result
 
@@ -37,6 +44,8 @@ class SysMem:
         #    strs.append(line)
         strs.extend(self.ReleaseInfo)
         strs.append('\n')
+        strs.append('\n' + 45 * '-' + 'Kernel  Info' + 40 * '-' + '\n')
+        strs.extend(self.KernelMem)
         strs.append('\n' + 45 * '-' + 'System  Info' + 40 * '-' + '\n')
         strs.append('MemTotal     :\t' + self.MemTotal + '\tMB\n')
         strs.append('MemUsed      :\t' + self.MemUsed + '\tMB\n')
@@ -72,13 +81,26 @@ class SysMem:
 
     #Read os-release file
     def _fetch_releaseinfo(self, fname):
-        print fname
+        #print fname
         if os.path.exists(fname) == False:
             return False
         f = open(fname, 'r')
         line = f.readline()
         while line:
             self.ReleaseInfo.append(line)
+            line = f.readline()
+        f.close()
+        return True
+
+ 
+    def _fetch_kernelmem(self, fname):
+        print fname
+        if os.path.exists(fname) == False:
+            return False
+        f = open(fname, 'r')
+        line = f.readline()
+        while line:
+            self.KernelMem.append(line)
             line = f.readline()
         f.close()
         return True

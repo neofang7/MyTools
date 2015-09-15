@@ -34,17 +34,38 @@ class TargetMachine:
             print str(e)
         return list
     
-    
-    def _map_smaps(self):
+    def _map_one_smaps(self, pname):
+        cmd = 'ps | grep ' + pname + ' | grep -v grep'
+        #print cmd
+        #ret = scp_client.send('ps | grep ' + pname + ' | grep -v grep')
+        ret = self.exec_cmd(cmd)
+        
+        l = ret[0].split()
+        pid = l[0]
+        print pid
+        scp_client = SCPClient(self.ip, self.user, self.password, 22)
+        scp_client.send('./local_copy.sh')
+        self.exec_cmd('python ./local_copy.py ' + pid)
+        return pid
+
+    def _map_all_smaps(self):
         scp_client = SCPClient(self.ip, self.user, self.password, 22)
         scp_client.send('./local_copy.sh')
         self.exec_cmd('sh ./local_copy.sh')
         scp_client.send('./local_copy.py')
         self.exec_cmd('python ./local_copy.py')
 
-    def fetch_smaps(self, dest, src):
-        self. _map_smaps()
+    def fetch_smaps(self, dest, src, pname):
         scp_client = SCPExpect(self.ip, self.user, self.password)
+        if pname == '':
+            self._map_all_smaps()
+        else:
+            pid = self._map_one_smaps(pname)
+            src = src + '/' + pid
+            dest = dest + '/proc'
+            if os.path.exists(dest) == False:
+                os.mkdir(dest, 0755)
+        print 'fetch_smaps: dest='+dest+' src='+src
         scp_client.fetch_dir(dest, src)
 
     #write the string list into fname
@@ -74,7 +95,11 @@ class TargetMachine:
         self.write_to_file(output_file, strs)
         
 
-    def analyze_memstat(self, src, dest, root_output_dir):
+    #@src is the dir path in the remote target machine, which is a temp folder contains related smaps/os-release/etc files. default is /tmp/proc/
+    #dest is the dir path in local machine, which scp the contents from remote target machine. default is /tmp/
+    #@root_output_dir is the output dir path, which stores the analysis result.
+    #@pname is the name of the process. If pname == '', it will analyze all of the processes.
+    def analyze_memstat(self, src, dest, root_output_dir, pname=''):
         #create output dir and file.
         if os.path.exists(root_output_dir) == False:
             os.mkdir(root_output_dir, 0755)
@@ -91,10 +116,11 @@ class TargetMachine:
         if os.path.exists(dest):
             shutil.rmtree(dest)
         os.mkdir(dest, 0755)
-        self.fetch_smaps(dest, src)
+        self.fetch_smaps(dest, src, pname)
 
-        sysmem = SysMem(dest + '/proc')
-        self.write_sysmem(sysmem._myself(), output_file)
+        if pname == '':
+            sysmem = SysMem(dest + '/proc')
+            self.write_sysmem(sysmem._myself(), output_file)
 
         memstat = MemStat(dest + '/proc')
         self.write_proc_prop(memstat.procs, output_file)
@@ -105,12 +131,9 @@ class TargetMachine:
         if os.path.exists(dest):
             print 'remove target machine folder ' + dest
             shutil.rmtree(dest)
-        #DBG
-        #print len(libs)
-        #for l in libs:
-        #    print l._myself() + '\tReferences: ' + str(len(l.procs)) + '\t' + l.cmd
-        #return libs
 
+
+#############Unit test#######################
 if __name__ == '__main__':
     ip = '10.239.13.111'
     dest = '/tmp/' + ip

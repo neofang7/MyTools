@@ -8,6 +8,7 @@ import threading, time
 
 from target_machine import *
 from target_xml import *
+from thread_input import *
 
 thread_args = []
 
@@ -19,18 +20,26 @@ def menu():
     parser.add_argument('--password', '-w', nargs=1, default='iotos')
     parser.add_argument('--load', '-l', nargs=1)
     parser.add_argument('--output', '-o', nargs=1, default='./outputs')
-    
+    parser.add_argument('--process', '-s', nargs=1)
     args = parser.parse_args()
 
     return args
 
+def analyze_process(ti):
+    tm = TargetMachine(ti.ip, ti.port, ti.user, ti.password)
+    print ti.ip
+    dst = '/tmp/' + ti.ip
+    src = '/tmp/proc/'
+    pname = ti.process
+    tm.analyze_memstat(src, dst, ti.output, pname)
+    
 
 def test_target(ti):
     tm = TargetMachine(ti.ip, ti.port, ti.user, ti.password)
     print ti.ip
     dst = '/tmp/' + ti.ip
     src = '/tmp/proc/'
-    tm.analyze_memstat(src, dst, ti.output)
+    tm.analyze_memstat(src, dst, ti.output, ti.process)
     
 
 if __name__ == '__main__':
@@ -39,11 +48,20 @@ if __name__ == '__main__':
     #print args.ip[0], args.port[0], args.user, args.password, args.load, args.output
 
     threads = []
-    
+    ti = ThreadInput()
+
+    #Functional options.
+    if args.process != None:
+        ti.process = args.process[0]
+    else:
+        ti.process = ''
+
     if args.load == None:
-        ti = ThreadInput(args.ip[0], args.port[0], args.user, args.password, args.output)
+        #ti = ThreadInput(args.ip[0], args.port[0], args.user, args.password, args.output)
         #thread_args.append(ti)
         #index = thread_args.
+
+        ti.set_machine(args.ip[0], args.port[0], args.user, args.password, args.output)
         arglist = []
         arglist.append(ti)
         thread = threading.Thread(target=test_target, args=arglist)
